@@ -1,8 +1,14 @@
 /*
  * Create a list that holds all of your cards
  */
-
-
+// select the cards
+const selectCards = document.querySelectorAll(".card");
+// define an array that contains the card because you can't pass a nodeList to shuffle(). https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+const cards = Array.from(selectCards);
+// select the deck of cards
+const deck = document.querySelector(".deck");
+// To append it the shuffled deck and then append it to the .deck, so the browser will do only one reflow and one repaint
+const fragment = document.createDocumentFragment();
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -25,6 +31,13 @@ function shuffle(array) {
     return array;
 }
 
+const shuffledDeck = shuffle(cards);
+// append the shuffled cards to fragment
+for (const card of shuffledDeck) {
+	fragment.appendChild(card);
+}
+// append the cards to .deck
+deck.appendChild(fragment);
 
 /*
  * set up the event listener for a card. If a card is clicked:
