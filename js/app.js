@@ -41,13 +41,41 @@ deck.appendChild(fragment);
 
 let selectedCards = [];
 const container = document.querySelector(".container");
-// console.log(container);
 container.addEventListener("click", function(event) {
+
 	if (event.target.classList.contains("card")) {
-		selectedCards.push(event.target);
-		console.log(selectedCards);
-		const classes = event.target.classList;
-		classes.add("show", "open");
+
+		if (selectedCards.length === 1) {
+
+			// show the clicked card and its content.
+			event.target.classList.add("show", "open");
+			// add it to the selectedCards array
+			selectedCards.push(event.target);
+			// if the selected cards match, then add the class "match" to them and make the selectedCards array empty.
+			if (selectedCards[0].innerHTML === selectedCards[1].innerHTML) {
+				
+				selectedCards[0].classList.add("match");
+				selectedCards[1].classList.add("match");
+				selectedCards = [];
+
+			} else { // if the cards don't match, then hide them again and make the selectedCards array empty.
+				setTimeout(function() {
+					selectedCards[0].classList.remove("match", "open", "show");
+					selectedCards[1].classList.remove("match", "open", "show");
+					selectedCards = [];
+				}, 600);
+				
+			}
+
+		} else if (selectedCards.length === 2) {
+				// to make sure that only 2 cards can be displayed at the same time, learned from: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
+				event.stopPropagation(); 
+
+		} else { // when no card is clicked.
+			event.target.classList.add("show", "open");
+			selectedCards.push(event.target);
+		}
+		
 	}
 
 });
