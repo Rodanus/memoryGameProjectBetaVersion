@@ -39,6 +39,20 @@ for (const card of shuffledDeck) {
 // append the cards to .deck
 deck.appendChild(fragment);
 
+let selectedCards = [];
+const container = document.querySelector(".container");
+// console.log(container);
+container.addEventListener("click", function(event) {
+	if (event.target.classList.contains("card")) {
+		selectedCards.push(event.target);
+		console.log(selectedCards);
+		const classes = event.target.classList;
+		classes.add("show", "open");
+	}
+
+});
+
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
