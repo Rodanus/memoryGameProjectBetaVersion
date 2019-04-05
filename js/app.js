@@ -39,6 +39,7 @@ for (const card of shuffledDeck) {
 // append the cards to .deck
 deck.appendChild(fragment);
 
+let matchedCards = [];
 let selectedCards = [];
 const container = document.querySelector(".container");
 container.addEventListener("click", function(event) {
@@ -46,8 +47,9 @@ container.addEventListener("click", function(event) {
 	if (event.target.classList.contains("card")) {
 
 		if (selectedCards.length === 1) {
-			// to make sure that the player won't select the same card twice.
-			if (selectedCards[0] === event.target) {
+
+			// to make sure that the player won't select the same card or the card that has the "match"class.
+			if ((selectedCards[0] === event.target) || (event.target.classList.contains("match"))) {
 				event.stopPropagation();
 
 			} else {
@@ -57,11 +59,13 @@ container.addEventListener("click", function(event) {
 				// add it to the selectedCards array
 				selectedCards.push(event.target);
 
-				// if the selected cards match, then add the class "match" to them and make the selectedCards array empty.
+				// if the selected cards match, then add the class "match" to them and add them to matchedCards array, also make the selectedCards array empty.
 				if (selectedCards[0].innerHTML === selectedCards[1].innerHTML) {
 
 					selectedCards[0].classList.add("match");
 					selectedCards[1].classList.add("match");
+					matchedCards.push(selectedCards[0], selectedCards[1]);
+					console.log(matchedCards);
 					selectedCards = [];
 
 				} else { // if the cards don't match, then hide them again and make the selectedCards array empty.
@@ -78,7 +82,10 @@ container.addEventListener("click", function(event) {
 				// to make sure that only 2 cards can be displayed at the same time, learned from: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
 				event.stopPropagation();
 
-		} else { // when no card is clicked.
+		} else if ((event.target.classList.contains("match"))){ // if the clicked card has "match" class
+			event.stopPropagation();
+
+		} else { // when selectedCards array is empty.
 			event.target.classList.add("show", "open");
 			selectedCards.push(event.target);
 		}
