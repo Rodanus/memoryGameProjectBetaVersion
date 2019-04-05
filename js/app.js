@@ -39,9 +39,13 @@ for (const card of shuffledDeck) {
 // append the cards to .deck
 deck.appendChild(fragment);
 
+let movesCounter = 0;
 let matchedCards = [];
 let selectedCards = [];
-const container = document.querySelector(".container");
+
+const container = document.querySelector(".container"); // the whole container.
+const moves = document.querySelector(".moves"); // the moves span.
+
 container.addEventListener("click", function(event) {
 
 	if (event.target.classList.contains("card")) {
@@ -50,7 +54,7 @@ container.addEventListener("click", function(event) {
 
 			// to make sure that the player won't select the same card or the card that has the "match"class.
 			if ((selectedCards[0] === event.target) || (event.target.classList.contains("match"))) {
-				event.stopPropagation();
+				event.stopPropagation(); // learned from: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
 
 			} else {
 
@@ -58,6 +62,8 @@ container.addEventListener("click", function(event) {
 				event.target.classList.add("show", "open");
 				// add it to the selectedCards array
 				selectedCards.push(event.target);
+				// increase the movesCounter
+				movesCounter += 1;
 
 				// if the selected cards match, then add the class "match" to them and add them to matchedCards array, also make the selectedCards array empty.
 				if (selectedCards[0].innerHTML === selectedCards[1].innerHTML) {
@@ -88,8 +94,10 @@ container.addEventListener("click", function(event) {
 		} else { // when selectedCards array is empty.
 			event.target.classList.add("show", "open");
 			selectedCards.push(event.target);
+			movesCounter += 1;
 		}
 
+		moves.innerHTML = movesCounter; // update the number of moves
 	}
 
 });
