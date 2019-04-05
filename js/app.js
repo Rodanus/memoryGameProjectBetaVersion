@@ -98,6 +98,11 @@ container.addEventListener("click", function(event) {
 		}
 
 		moves.innerHTML = movesCounter; // update the number of moves
+
+		const stars = document.querySelectorAll(".fa-star"); // select the stars
+		if ((movesCounter % 4 === 0) && (stars.length > 1)) { // each time movesCounter is increased 4 numbers, one star is removed, but if there is only one star left it stops.
+			stars[0].remove();
+		}
 	}
 
 });
