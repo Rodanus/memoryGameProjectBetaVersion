@@ -46,36 +46,43 @@ container.addEventListener("click", function(event) {
 	if (event.target.classList.contains("card")) {
 
 		if (selectedCards.length === 1) {
+			// to make sure that the player won't select the same card twice.
+			if (selectedCards[0] === event.target) {
+				event.stopPropagation();
 
-			// show the clicked card and its content.
-			event.target.classList.add("show", "open");
-			// add it to the selectedCards array
-			selectedCards.push(event.target);
-			// if the selected cards match, then add the class "match" to them and make the selectedCards array empty.
-			if (selectedCards[0].innerHTML === selectedCards[1].innerHTML) {
-				
-				selectedCards[0].classList.add("match");
-				selectedCards[1].classList.add("match");
-				selectedCards = [];
+			} else {
 
-			} else { // if the cards don't match, then hide them again and make the selectedCards array empty.
-				setTimeout(function() {
-					selectedCards[0].classList.remove("match", "open", "show");
-					selectedCards[1].classList.remove("match", "open", "show");
+				// show the clicked card and its content.
+				event.target.classList.add("show", "open");
+				// add it to the selectedCards array
+				selectedCards.push(event.target);
+
+				// if the selected cards match, then add the class "match" to them and make the selectedCards array empty.
+				if (selectedCards[0].innerHTML === selectedCards[1].innerHTML) {
+
+					selectedCards[0].classList.add("match");
+					selectedCards[1].classList.add("match");
 					selectedCards = [];
-				}, 600);
-				
+
+				} else { // if the cards don't match, then hide them again and make the selectedCards array empty.
+					setTimeout(function() {
+						selectedCards[0].classList.remove("match", "open", "show");
+						selectedCards[1].classList.remove("match", "open", "show");
+						selectedCards = [];
+					}, 600);
+
+				}
 			}
 
 		} else if (selectedCards.length === 2) {
 				// to make sure that only 2 cards can be displayed at the same time, learned from: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
-				event.stopPropagation(); 
+				event.stopPropagation();
 
 		} else { // when no card is clicked.
 			event.target.classList.add("show", "open");
 			selectedCards.push(event.target);
 		}
-		
+
 	}
 
 });
