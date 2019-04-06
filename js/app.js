@@ -38,11 +38,23 @@ function removeStar() {
 		}
 }
 
+let seconds = 0;
+const timeContainer = document.querySelector(".time");
+function timer() {
+	if (matchedCards.length !== 16) {
+		timeContainer.innerHTML = seconds;
+		seconds += 1;
+		setTimeout(timer, 1000);
+	}
+}
+
+// shuffle the cards
 const shuffledDeck = shuffle(cards);
 // append the shuffled cards to fragment
 for (const card of shuffledDeck) {
 	fragment.appendChild(card);
 }
+
 // append the cards to .deck
 deck.appendChild(fragment);
 
@@ -104,7 +116,11 @@ container.addEventListener("click", function(event) {
 			selectedCards.push(event.target);
 			movesCounter += 1;
 			// check if a start should be removed.
-			removeStar()
+			removeStar();
+			// if this is the first card that is clicked, call the timer function
+			if (seconds === 0) {
+				timer();
+			}
 		}
 
 		moves.innerHTML = movesCounter; // update the number of moves
