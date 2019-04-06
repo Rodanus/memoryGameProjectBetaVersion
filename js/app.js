@@ -31,6 +31,13 @@ function shuffle(array) {
     return array;
 }
 
+function removeStar() {
+	const stars = document.querySelectorAll(".fa-star"); // select the stars
+	if ((movesCounter % 4 === 0) && (stars.length > 1)) { // each time movesCounter is increased 4 numbers, one star is removed, but if there is only one star left it stops.
+			stars[0].remove();
+		}
+}
+
 const shuffledDeck = shuffle(cards);
 // append the shuffled cards to fragment
 for (const card of shuffledDeck) {
@@ -64,6 +71,8 @@ container.addEventListener("click", function(event) {
 				selectedCards.push(event.target);
 				// increase the movesCounter
 				movesCounter += 1;
+				// check if a star should be removed.
+				removeStar()
 
 				// if the selected cards match, then add the class "match" to them and add them to matchedCards array, also make the selectedCards array empty.
 				if (selectedCards[0].innerHTML === selectedCards[1].innerHTML) {
@@ -71,7 +80,6 @@ container.addEventListener("click", function(event) {
 					selectedCards[0].classList.add("match");
 					selectedCards[1].classList.add("match");
 					matchedCards.push(selectedCards[0], selectedCards[1]);
-					console.log(matchedCards);
 					selectedCards = [];
 
 				} else { // if the cards don't match, then hide them again and make the selectedCards array empty.
@@ -95,14 +103,11 @@ container.addEventListener("click", function(event) {
 			event.target.classList.add("show", "open");
 			selectedCards.push(event.target);
 			movesCounter += 1;
+			// check if a start should be removed.
+			removeStar()
 		}
 
 		moves.innerHTML = movesCounter; // update the number of moves
-
-		const stars = document.querySelectorAll(".fa-star"); // select the stars
-		if ((movesCounter % 4 === 0) && (stars.length > 1)) { // each time movesCounter is increased 4 numbers, one star is removed, but if there is only one star left it stops.
-			stars[0].remove();
-		}
 	}
 
 });
