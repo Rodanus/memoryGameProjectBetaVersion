@@ -124,6 +124,11 @@ container.addEventListener("click", function(event) {
 		}
 
 		moves.innerHTML = movesCounter; // update the number of moves
+
+	} else if ((event.target.classList.contains("restart")) || (event.target.classList.contains("fa-repeat"))) {
+		for (let card of selectCards) {
+			card.classList.remove("open", "show", "match");
+		}
 	}
 
 });
