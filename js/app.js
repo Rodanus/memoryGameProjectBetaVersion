@@ -3,7 +3,8 @@
  */
 // select the cards
 const selectCards = document.querySelectorAll(".card");
-// define an array that contains the card because you can't pass a nodeList to shuffle(). https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+/* define an array that contains the card because you can't pass a nodeList to shuffle().
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from */
 const cards = Array.from(selectCards);
 // select the deck of cards
 const deck = document.querySelector(".deck");
@@ -31,9 +32,12 @@ function shuffle(array) {
     return array;
 }
 
+let removedStars = [];
 function removeStar() {
 	const stars = document.querySelectorAll(".fa-star"); // select the stars
-	if ((movesCounter % 4 === 0) && (stars.length > 1)) { // each time movesCounter is increased 4 numbers, one star is removed, but if there is only one star left it stops.
+	if ((movesCounter % 4 === 0) && (stars.length > 1)) { /* each time movesCounter is increased 4 numbers,
+	 one star is removed, but if there is only one star left it stops. */
+			removedStars.push(stars[0]);
 			stars[0].remove();
 		}
 }
@@ -73,7 +77,8 @@ container.addEventListener("click", function(event) {
 
 			// to make sure that the player won't select the same card or the card that has the "match"class.
 			if ((selectedCards[0] === event.target) || (event.target.classList.contains("match"))) {
-				event.stopPropagation(); // learned from: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
+				event.stopPropagation(); /* learned from:
+				 https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation */
 
 			} else {
 
@@ -86,7 +91,8 @@ container.addEventListener("click", function(event) {
 				// check if a star should be removed.
 				removeStar()
 
-				// if the selected cards match, then add the class "match" to them and add them to matchedCards array, also make the selectedCards array empty.
+				/* if the selected cards match, then add the class "match" to them and add them to matchedCards array,
+				also make the selectedCards array empty.*/
 				if (selectedCards[0].innerHTML === selectedCards[1].innerHTML) {
 
 					selectedCards[0].classList.add("match");
@@ -105,8 +111,9 @@ container.addEventListener("click", function(event) {
 			}
 
 		} else if (selectedCards.length === 2) {
-				// to make sure that only 2 cards can be displayed at the same time, learned from: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
-				event.stopPropagation();
+			/* to make sure that only 2 cards can be displayed at the same time,
+			learned from: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation */
+			event.stopPropagation();
 
 		} else if ((event.target.classList.contains("match"))){ // if the clicked card has "match" class
 			event.stopPropagation();
@@ -126,8 +133,21 @@ container.addEventListener("click", function(event) {
 		moves.innerHTML = movesCounter; // update the number of moves
 
 	} else if ((event.target.classList.contains("restart")) || (event.target.classList.contains("fa-repeat"))) {
+
 		for (let card of selectCards) {
 			card.classList.remove("open", "show", "match");
+		}
+
+		if (removedStars.length > 0) { // if one or more stars are removed
+
+			const starsContainer = document.querySelector(".stars");
+			const eachStarContainer = document.querySelectorAll(".stars li");
+
+			for (let li of eachStarContainer) { // loop over each star's container "li" and append it a star
+				if (removedStars.length > 0) { // to avoid running the code if the removedStars list is empty, otherwise, it will through an error.
+					li.appendChild(removedStars.pop()); // append a star to each li and remove it from removedStars array.
+				}
+			}
 		}
 	}
 
