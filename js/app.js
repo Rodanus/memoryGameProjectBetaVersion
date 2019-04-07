@@ -35,7 +35,7 @@ function shuffle(array) {
 let removedStars = [];
 function removeStar() {
 	const stars = document.querySelectorAll(".fa-star"); // select the stars
-	if ((movesCounter % 4 === 0) && (stars.length > 1)) { /* each time movesCounter is increased 4 numbers,
+	if ((movesCounter % 10 === 0) && (stars.length > 1)) { /* each time movesCounter is increased 10 numbers,
 	 one star is removed, but if there is only one star left it stops. */
 			removedStars.push(stars[0]);
 			stars[0].remove();
