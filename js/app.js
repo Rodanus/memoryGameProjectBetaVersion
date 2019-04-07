@@ -148,6 +148,9 @@ container.addEventListener("click", function(event) {
 					li.appendChild(removedStars.pop()); // append a star to each li and remove it from removedStars array.
 				}
 			}
+
+			movesCounter = 0; // reset the number of moves to 0.
+			moves.innerHTML = movesCounter; // update the number of moves
 		}
 	}
 
