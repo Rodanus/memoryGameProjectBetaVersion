@@ -32,6 +32,18 @@ function shuffle(array) {
     return array;
 }
 
+function shuffleCards() {
+	// shuffle the cards
+	const shuffledDeck = shuffle(cards);
+	// append the shuffled cards to fragment
+	for (const card of shuffledDeck) {
+		fragment.appendChild(card);
+	}
+
+	// append the cards to .deck
+	deck.appendChild(fragment);
+}
+
 let removedStars = [];
 function removeStar() {
 	const stars = document.querySelectorAll(".fa-star"); // select the stars
@@ -43,7 +55,7 @@ function removeStar() {
 }
 
 let seconds = 0;
-let setTimeoutId; // will be use when stopping the timer.
+let setTimeoutId; // will be used when stopping the timer.
 const timeContainer = document.querySelector(".time");
 function timer() {
 	if (matchedCards.length !== 16) {
@@ -58,6 +70,9 @@ function restart() {
 	for (let card of selectCards) {
 		card.classList.remove("open", "show", "match");
 	}
+
+	// shuffle the cards again
+	shuffleCards()
 
 	if (removedStars.length > 0) { // if one or more stars are removed
 
@@ -97,16 +112,7 @@ function gameEnded() {
 	}
 }
 
-
-// shuffle the cards
-const shuffledDeck = shuffle(cards);
-// append the shuffled cards to fragment
-for (const card of shuffledDeck) {
-	fragment.appendChild(card);
-}
-
-// append the cards to .deck
-deck.appendChild(fragment);
+shuffleCards();
 
 let movesCounter = 0;
 let matchedCards = [];
