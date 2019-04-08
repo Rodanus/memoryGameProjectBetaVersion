@@ -53,6 +53,35 @@ function timer() {
 	}
 }
 
+function restart() {
+
+	for (let card of selectCards) {
+			card.classList.remove("open", "show", "match");
+		}
+
+		if (removedStars.length > 0) { // if one or more stars are removed
+
+			const starsContainer = document.querySelector(".stars");
+			const eachStarContainer = document.querySelectorAll(".stars li");
+
+			for (let li of eachStarContainer) { // loop over each star's container "li" and append it a star
+				if (removedStars.length > 0) { // to avoid running the code if the removedStars list is empty, otherwise, it will through an error.
+					li.appendChild(removedStars.pop()); // append a star to each li and remove it from removedStars array.
+				}
+			}
+
+		}
+		// reset the moves.
+		movesCounter = 0; // reset the number of moves to 0.
+		moves.innerHTML = movesCounter; // update the number of moves
+
+		// reset and stop the timer.
+		seconds = 0;
+		timeContainer.innerHTML = seconds;
+		clearTimeout(setTimeoutId);
+}
+
+
 // shuffle the cards
 const shuffledDeck = shuffle(cards);
 // append the shuffled cards to fragment
@@ -133,32 +162,8 @@ container.addEventListener("click", function(event) {
 
 		moves.innerHTML = movesCounter; // update the number of moves
 
-	} else if ((event.target.classList.contains("restart")) || (event.target.classList.contains("fa-repeat"))) {
-
-		for (let card of selectCards) {
-			card.classList.remove("open", "show", "match");
-		}
-
-		if (removedStars.length > 0) { // if one or more stars are removed
-
-			const starsContainer = document.querySelector(".stars");
-			const eachStarContainer = document.querySelectorAll(".stars li");
-
-			for (let li of eachStarContainer) { // loop over each star's container "li" and append it a star
-				if (removedStars.length > 0) { // to avoid running the code if the removedStars list is empty, otherwise, it will through an error.
-					li.appendChild(removedStars.pop()); // append a star to each li and remove it from removedStars array.
-				}
-			}
-
-		}
-		// reset the moves.
-		movesCounter = 0; // reset the number of moves to 0.
-		moves.innerHTML = movesCounter; // update the number of moves
-
-		// reset and stop the timer.
-		seconds = 0;
-		timeContainer.innerHTML = seconds;
-		clearTimeout(setTimeoutId);
+	} else if (((event.target.classList.contains("restart")) || (event.target.classList.contains("fa-repeat"))) || (event.target.classList.contains("play-again"))) {
+		restart();
 	}
 
 });
