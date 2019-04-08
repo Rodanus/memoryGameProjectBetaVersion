@@ -56,38 +56,38 @@ function timer() {
 function restart() {
 
 	for (let card of selectCards) {
-			card.classList.remove("open", "show", "match");
-		}
+		card.classList.remove("open", "show", "match");
+	}
 
-		if (removedStars.length > 0) { // if one or more stars are removed
+	if (removedStars.length > 0) { // if one or more stars are removed
 
-			const starsContainer = document.querySelector(".stars");
-			const eachStarContainer = document.querySelectorAll(".stars li");
+		const starsContainer = document.querySelector(".stars");
+		const eachStarContainer = document.querySelectorAll(".stars li");
 
-			for (let li of eachStarContainer) { // loop over each star's container "li" and append it a star
-				if (removedStars.length > 0) { // to avoid running the code if the removedStars list is empty, otherwise, it will through an error.
-					li.appendChild(removedStars.pop()); // append a star to each li and remove it from removedStars array.
-				}
+		for (let li of eachStarContainer) { // loop over each star's container "li" and append it a star
+			if (removedStars.length > 0) { // to avoid running the code if the removedStars list is empty, otherwise, it will through an error.
+				li.appendChild(removedStars.pop()); // append a star to each li and remove it from removedStars array.
 			}
-
 		}
-		// make selectedCards array empty
-		selectedCards = [];
 
-		// reset the moves.
-		movesCounter = 0; // reset the number of moves to 0.
-		moves.innerHTML = movesCounter; // update the number of moves
+	}
+	// make selectedCards array empty
+	selectedCards = [];
 
-		// reset and stop the timer.
-		seconds = 0;
-		timeContainer.innerHTML = seconds;
-		clearTimeout(setTimeoutId);
+	// reset the moves.
+	movesCounter = 0; // reset the number of moves to 0.
+	moves.innerHTML = movesCounter; // update the number of moves
 
-		// hide the congratsPopup
-		congratsPopup.classList.remove("visible");
+	// reset and stop the timer.
+	seconds = 0;
+	timeContainer.innerHTML = seconds;
+	clearTimeout(setTimeoutId);
 
-		// make matchedCards array empty
-		matchedCards = [];
+	// hide the congratsPopup
+	congratsPopup.classList.remove("visible");
+
+	// make matchedCards array empty
+	matchedCards = [];
 }
 
 const congratsPopup = document.querySelector(".congrats-popup");
