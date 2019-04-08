@@ -119,10 +119,14 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
-    /*display: none;*/
+    display: none;
 /*    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 */
+}
+
+.visible {
+    display: block;
 }

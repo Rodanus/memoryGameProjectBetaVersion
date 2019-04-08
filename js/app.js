@@ -81,6 +81,13 @@ function restart() {
 		clearTimeout(setTimeoutId);
 }
 
+function gameEnded() {
+	if (matchedCards.length === 16) {
+		const congratsPopup = document.querySelector(".congrats-popup");
+		congratsPopup.classList.add("visible");
+	}
+}
+
 
 // shuffle the cards
 const shuffledDeck = shuffle(cards);
@@ -139,6 +146,8 @@ container.addEventListener("click", function(event) {
 
 				}
 			}
+			// check if the user has won the game.
+			gameEnded();
 
 		} else if (selectedCards.length === 2) {
 			/* to make sure that only 2 cards can be displayed at the same time,
