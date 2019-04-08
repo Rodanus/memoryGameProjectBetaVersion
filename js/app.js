@@ -79,11 +79,14 @@ function restart() {
 		seconds = 0;
 		timeContainer.innerHTML = seconds;
 		clearTimeout(setTimeoutId);
+
+		// hide the congratsPopup
+		congratsPopup.classList.remove("visible");
 }
 
+const congratsPopup = document.querySelector(".congrats-popup");
 function gameEnded() {
 	if (matchedCards.length === 16) {
-		const congratsPopup = document.querySelector(".congrats-popup");
 		congratsPopup.classList.add("visible");
 	}
 }
