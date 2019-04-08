@@ -82,6 +82,9 @@ function restart() {
 
 		// hide the congratsPopup
 		congratsPopup.classList.remove("visible");
+
+		// make matchedCards array empty
+		matchedCards = [];
 }
 
 const congratsPopup = document.querySelector(".congrats-popup");
