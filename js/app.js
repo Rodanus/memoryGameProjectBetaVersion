@@ -71,6 +71,9 @@ function restart() {
 			}
 
 		}
+		// make selectedCards array empty
+		selectedCards = [];
+
 		// reset the moves.
 		movesCounter = 0; // reset the number of moves to 0.
 		moves.innerHTML = movesCounter; // update the number of moves
