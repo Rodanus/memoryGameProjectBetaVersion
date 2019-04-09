@@ -108,7 +108,28 @@ function restart() {
 const congratsPopup = document.querySelector(".congrats-popup");
 function gameEnded() {
 	if (matchedCards.length === 16) {
+
+		// update the score time
+		const scoreTime = document.querySelector(".score-time");
+		scoreTime.innerHTML = seconds;
+
+		// update the moves 
+		const scoreMoves = document.querySelector(".score-moves");
+		scoreMoves.innerHTML = movesCounter;
+
+		// count the left stars 
+		const stars = document.querySelectorAll(".fa-star"); // select the stars
+		let starsLeft = 0;
+		for (let star of stars) {
+			starsLeft += 1;
+		}
+		// update the stars
+		const scoreStars = document.querySelector(".score-stars");
+		scoreStars.innerHTML = starsLeft;
+		
+		// show the popup
 		congratsPopup.classList.add("visible");
+
 	}
 }
 
