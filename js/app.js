@@ -111,13 +111,13 @@ function gameEnded() {
 
 		// update the score time
 		const scoreTime = document.querySelector(".score-time");
-		scoreTime.innerHTML = seconds;
+		scoreTime.innerHTML = seconds - 1;
 
-		// update the moves 
+		// update the moves
 		const scoreMoves = document.querySelector(".score-moves");
 		scoreMoves.innerHTML = movesCounter;
 
-		// count the left stars 
+		// count the left stars
 		const stars = document.querySelectorAll(".fa-star"); // select the stars
 		let starsLeft = 0;
 		for (let star of stars) {
@@ -126,7 +126,7 @@ function gameEnded() {
 		// update the stars
 		const scoreStars = document.querySelector(".score-stars");
 		scoreStars.innerHTML = starsLeft;
-		
+
 		// show the popup
 		congratsPopup.classList.add("visible");
 
