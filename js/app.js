@@ -123,6 +123,12 @@ function gameEnded() {
 		for (let star of stars) {
 			starsLeft += 1;
 		}
+
+		// if only one star is left, make sure "star" is displayed and not "stars".
+		if (starsLeft === 1) {
+			const scoreStarsText = document.querySelector(".score-stars-text");
+			scoreStarsText.innerHTML = "star";
+		}
 		// update the stars
 		const scoreStars = document.querySelector(".score-stars");
 		scoreStars.innerHTML = starsLeft;
