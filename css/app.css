@@ -116,8 +116,13 @@ h1 {
     margin: 0;
 }
 
+
+/*
+ * Congratulations popup style
+ */
 .congrats-popup {
-    text-align: center;
+    width: 100%;
+    height: 100%;
     background: white;
     color: black;
     position: absolute;
@@ -125,14 +130,27 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
-    display: none;
-/*    display: flex;
+    z-index: 1;
+
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-*/
+
 }
 
+/*
+ * to display the popup
+ */
 .visible {
-    display: block;
+    z-index: 1;
+}
+
+.title {
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+
+.score {
+    font-size: 1.2rem;
 }
