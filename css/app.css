@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 *,
@@ -43,7 +44,7 @@ h1 {
     width: 560px;
     min-height: 580px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 2rem;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
@@ -73,13 +74,13 @@ h1 {
 }
 
 .deck .card.show {
-    font-size: 33px;
+    font-size: 2rem;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
-    font-size: 33px;
+    font-size: 2rem;
 }
 
 /*
@@ -110,7 +111,8 @@ h1 {
     cursor: pointer;
 }
 
-.deck, .score-panel {
+.deck,
+.score-panel {
     margin: 0;
 }
 
