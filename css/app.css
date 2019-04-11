@@ -150,6 +150,7 @@ h1 {
 .title {
     text-transform: capitalize;
     font-size: 2rem;
+    color: #17a91d;
 }
 
 .score {
