@@ -179,10 +179,13 @@ container.addEventListener("click", function(event) {
 					matchedCards.push(selectedCards[0], selectedCards[1]);
 					selectedCards = [];
 
-				} else { // if the cards don't match, then hide them again and make the selectedCards array empty.
+				} else { // if the cards don't match, change their colors, hide them again and make the selectedCards array empty.
+
+					selectedCards[0].classList.add("dont-match");
+					selectedCards[1].classList.add("dont-match");
 					setTimeout(function() {
-						selectedCards[0].classList.remove("match", "open", "show");
-						selectedCards[1].classList.remove("match", "open", "show");
+						selectedCards[0].classList.remove("match", "open", "show", "dont-match");
+						selectedCards[1].classList.remove("match", "open", "show", "dont-match");
 						selectedCards = [];
 					}, 600);
 

@@ -54,7 +54,7 @@ h1 {
     align-items: center;
 }
 
-.deck .card {
+.card {
     height: 109px;
     width: 109px;
     background: #2e3d49;
@@ -70,20 +70,27 @@ h1 {
     transition: all 0.3s;
 }
 
-.deck .card.open {
+.open {
     transform: rotateY(0);
     background: #02b3e4;
     cursor: default;
 }
 
-.deck .card.show {
+.show {
     font-size: 2rem;
 }
 
-.deck .card.match {
+.match {
     cursor: default;
     background: #02ccba;
     font-size: 2rem;
+}
+
+/*
+ * when cards don't match
+ */
+.dont-match {
+    background: #d72638;
 }
 
 /*
@@ -91,7 +98,6 @@ h1 {
  */
 
 .score-panel {
-    /*text-align: left;*/
     width: 345px;
     display: flex;
     justify-content: space-between;
@@ -114,6 +120,9 @@ h1 {
     cursor: pointer;
 }
 
+/*
+ * remove extra space
+ */
 .deck,
 .score-panel {
     margin: 0;
@@ -161,7 +170,9 @@ h1 {
 }
 
 
-/* play again button */
+/*
+ * play again button
+ */
 .play-again {
     font-size: 1.1rem;
     padding: 0.6rem;
