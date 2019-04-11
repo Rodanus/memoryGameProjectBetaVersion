@@ -66,6 +66,8 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transform: rotateY(-180deg);
+    transition: all 0.3s;
 }
 
 .deck .card.open {
@@ -130,7 +132,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
-    z-index: 1;
+    z-index: -1;
 
     display: flex;
     justify-content: center;
