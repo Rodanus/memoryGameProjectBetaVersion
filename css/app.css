@@ -214,3 +214,26 @@ h1 {
     }
 
 }
+
+/*
+ * Mobile L
+ */
+@media screen and (max-width: 425px) {
+    .deck {
+        padding: 1.3rem;
+        width: 98%;
+    }
+
+    .card {
+        height: 84.72px;
+    }
+
+    .score-panel {
+        width: 80%;
+        font-size: 1rem;
+    }
+
+    .show {
+        font-size: 1.4rem;
+    }
+}
