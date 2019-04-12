@@ -183,3 +183,34 @@ h1 {
     margin-top: 26.56px;
     cursor: pointer;
 }
+
+
+/*
+ * tablets
+ */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    .deck {
+        width: 95%;
+        height: auto;
+    }
+
+    .card {
+        width: calc((100% - 36px)/4);
+        height: 157.39px;
+        margin: 0 12px 12px 0;
+    }
+
+    /* remove margin from 4th cards */
+    .card:nth-child(4n) {
+        margin-right: 0;
+    }
+
+    .score-panel {
+        font-size: 1.2rem;
+    }
+
+}
