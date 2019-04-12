@@ -109,35 +109,38 @@ const congratsPopup = document.querySelector(".congrats-popup");
 function gameEnded() {
 	if (matchedCards.length === 16) {
 
-		// update the score time
-		const scoreTime = document.querySelector(".score-time");
-		scoreTime.innerHTML = seconds - 1;
+		setTimeout(function() {
+			// update the score time
+			const scoreTime = document.querySelector(".score-time");
+			scoreTime.innerHTML = seconds - 1;
 
-		// update the moves
-		const scoreMoves = document.querySelector(".score-moves");
-		scoreMoves.innerHTML = movesCounter;
+			// update the moves
+			const scoreMoves = document.querySelector(".score-moves");
+			scoreMoves.innerHTML = movesCounter;
 
-		// count the left stars
-		const stars = document.querySelectorAll(".fa-star"); // select the stars
-		let starsLeft = 0;
-		for (let star of stars) {
-			starsLeft += 1;
-		}
+			// count the left stars
+			const stars = document.querySelectorAll(".fa-star"); // select the stars
+			let starsLeft = 0;
+			for (let star of stars) {
+				starsLeft += 1;
+			}
 
-		// if only one star is left, make sure "star" is displayed and not "stars".
-		const scoreStarsText = document.querySelector(".score-stars-text");
-		if (starsLeft === 1) {
-			scoreStarsText.innerHTML = "star";
-		} else {
-			scoreStarsText.innerHTML = "stars";
-		}
+			// if only one star is left, make sure "star" is displayed and not "stars".
+			const scoreStarsText = document.querySelector(".score-stars-text");
+			if (starsLeft === 1) {
+				scoreStarsText.innerHTML = "star";
+			} else {
+				scoreStarsText.innerHTML = "stars";
+			}
 
-		// update the stars
-		const scoreStars = document.querySelector(".score-stars");
-		scoreStars.innerHTML = starsLeft;
+			// update the stars
+			const scoreStars = document.querySelector(".score-stars");
+			scoreStars.innerHTML = starsLeft;
 
-		// show the popup
-		congratsPopup.classList.add("visible");
+			// show the popup
+			congratsPopup.classList.add("visible");
+
+		}, 850)
 
 	}
 }
