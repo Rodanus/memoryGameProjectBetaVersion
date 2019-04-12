@@ -125,10 +125,13 @@ function gameEnded() {
 		}
 
 		// if only one star is left, make sure "star" is displayed and not "stars".
+		const scoreStarsText = document.querySelector(".score-stars-text");
 		if (starsLeft === 1) {
-			const scoreStarsText = document.querySelector(".score-stars-text");
 			scoreStarsText.innerHTML = "star";
+		} else {
+			scoreStarsText.innerHTML = "stars";
 		}
+
 		// update the stars
 		const scoreStars = document.querySelector(".score-stars");
 		scoreStars.innerHTML = starsLeft;
