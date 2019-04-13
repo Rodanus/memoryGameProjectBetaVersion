@@ -217,8 +217,9 @@ container.addEventListener("click", function(event) {
 			// check if the user has won the game.
 			gameEnded();
 
-		} else if (selectedCards.length === 2) {
-			/* to make sure that only 2 cards can be displayed at the same time,
+		} else if ((selectedCards.length === 2) || (event.target.classList.contains("open", "show"))) {
+			/* to make sure that only 2 cards can be displayed at the same time, also when starting the game and
+			showing the cards for 6 sec.
 			learned from: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation */
 			event.stopPropagation();
 
