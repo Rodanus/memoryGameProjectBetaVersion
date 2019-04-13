@@ -44,6 +44,19 @@ function shuffleCards() {
 	deck.appendChild(fragment);
 }
 
+// show the cards for 6 seconds when the game starts
+function startGame() {
+	for (const card of cards) {
+		card.classList.add("open", "show");
+	}
+
+	setTimeout(function() {
+		for (const card of cards) {
+			card.classList.remove("open", "show");
+		}
+	}, 6000);
+}
+
 let removedStars = [];
 function removeStar() {
 	const stars = document.querySelectorAll(".fa-star"); // select the stars
@@ -103,6 +116,10 @@ function restart() {
 
 	// make matchedCards array empty
 	matchedCards = [];
+
+	// show the cards for 6 seconds
+	startGame();
+
 }
 
 const congratsPopup = document.querySelector(".congrats-popup");
@@ -228,7 +245,8 @@ container.addEventListener("click", function(event) {
 
 });
 
-
+// show the cards for 6 seconds
+startGame();
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
