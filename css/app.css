@@ -237,3 +237,17 @@ h1 {
         font-size: 1.4rem;
     }
 }
+
+/*
+ * Mobile M
+ */
+@media screen and (max-width: 375px) {
+    .card {
+        height: 72.47px;
+    }
+
+    .score-panel {
+        width: 80%;
+        font-size: 0.9rem;
+    }
+}
