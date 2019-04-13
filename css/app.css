@@ -216,6 +216,60 @@ h1 {
 }
 
 /*
+ * 689px
+ */
+@media screen and (max-width: 689px) {
+    .card {
+        height: 138.63px;
+    }
+}
+
+/*
+ * 635px
+ */
+@media screen and (max-width: 635px) {
+    .card {
+        height: 125.81px;
+    }
+}
+
+/*
+ * 580px
+ */
+@media screen and (max-width: 580px) {
+    .card {
+        height: 112.75px;
+    }
+}
+
+/*
+ * 527px
+ */
+@media screen and (max-width: 527px) {
+    .card {
+        height: 100.16px;
+    }
+}
+
+/*
+ * 478px
+ */
+@media screen and (max-width: 478px) {
+    .card {
+        height: 88.52px;
+    }
+}
+
+/*
+ * 440px
+ */
+@media screen and (max-width: 440px) {
+    .card {
+        height: 79.5px;
+    }
+}
+
+/*
  * Mobile L
  */
 @media screen and (max-width: 425px) {
@@ -239,6 +293,15 @@ h1 {
 }
 
 /*
+ * Mobile 400px
+ */
+@media screen and (max-width: 400px) {
+    .card {
+        height: 78.59px;
+    }
+}
+
+/*
  * Mobile M
  */
 @media screen and (max-width: 375px) {
@@ -249,6 +312,15 @@ h1 {
     .score-panel {
         width: 80%;
         font-size: 0.9rem;
+    }
+}
+
+/*
+ * Mobile 342px
+ */
+@media screen and (max-width: 342px) {
+    .card {
+        height: 64.39px;
     }
 }
 
