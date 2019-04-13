@@ -251,3 +251,16 @@ h1 {
         font-size: 0.9rem;
     }
 }
+
+/*
+ * Mobile S
+ */
+@media screen and (max-width: 320px) {
+    .card {
+        height: 59px;
+    }
+
+    .show {
+        font-size: 1.2rem;
+    }
+}
