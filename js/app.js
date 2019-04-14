@@ -44,8 +44,13 @@ function shuffleCards() {
 	deck.appendChild(fragment);
 }
 
-// show the cards for 6 seconds when the game starts
+// will be used to check whether restart button is clicked or not.
+let isNotClicked = true;
+// show the cards for 6 seconds when starting/restarting the game.
 function startGame() {
+
+	isNotClicked = false;
+
 	for (const card of cards) {
 		card.classList.add("open", "show");
 	}
@@ -53,8 +58,11 @@ function startGame() {
 	setTimeout(function() {
 		for (const card of cards) {
 			card.classList.remove("open", "show");
+
+			isNotClicked = true;
 		}
 	}, 6000);
+
 }
 
 let removedStars = [];
@@ -241,7 +249,11 @@ container.addEventListener("click", function(event) {
 		moves.innerHTML = movesCounter; // update the number of moves
 
 	} else if (((event.target.classList.contains("restart")) || (event.target.classList.contains("fa-repeat"))) || (event.target.classList.contains("play-again"))) {
-		restart();
+
+		// check whether restart button is clicked or not.
+		if (isNotClicked) {
+			restart();
+		}
 	}
 
 });
