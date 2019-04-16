@@ -374,6 +374,26 @@ h1 {
         width: 80%;
         font-size: 0.9rem;
     }
+
+}
+
+/*
+ * iPhone 5/SE, to make sure that start button is shown
+ */
+@media screen and (max-width: 360px) {
+    .start-popup {
+        height: 120%;
+    }
+
+    .game-name,
+    .start {
+        margin: 0;
+    }
+
+    .welcome,
+    .play-info {
+        margin: 14px 0 0;
+    }
 }
 
 /*
