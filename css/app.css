@@ -152,14 +152,6 @@ h1 {
 
 }
 
-/*
- * to display the popup
- */
-.visible {
-    left: 50%;
-}
-
-
 .title, .game-name {
     text-transform: capitalize;
     font-size: 2rem;
@@ -232,6 +224,13 @@ h1 {
     cursor: pointer;
     width: 100px;
     text-transform: uppercase;
+}
+
+/*
+ * to display the popups
+ */
+.visible {
+    left: 50%;
 }
 
 

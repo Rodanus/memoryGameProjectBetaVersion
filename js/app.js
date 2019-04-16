@@ -254,12 +254,19 @@ container.addEventListener("click", function(event) {
 		if (isNotClicked) {
 			restart();
 		}
+
+	} else if (event.target.classList.contains("start")){
+		// show the cards for 6 seconds
+		startGame();
+		// hide popup
+		startPopup.classList.toggle("visible");
 	}
 
 });
 
-// show the cards for 6 seconds
-startGame();
+// show start popup
+const startPopup = document.querySelector(".start-popup");
+startPopup.classList.toggle("visible");
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
