@@ -248,7 +248,9 @@ container.addEventListener("click", function(event) {
 
 		moves.innerHTML = movesCounter; // update the number of moves
 
-	} else if (((event.target.classList.contains("restart")) || (event.target.classList.contains("fa-repeat"))) || (event.target.classList.contains("play-again"))) {
+	} else if ((((event.target.classList.contains("restart")) || (event.target.classList.contains("fa-repeat"))) && (event.target.parentNode.classList.contains("restart"))) || (event.target.classList.contains("play-again"))) {
+
+		// && (event.target.parentNode.classList.contains("restart")) -> this condition makes sure that the clicked restart icon is not the one that is inside start popup.
 
 		// check whether restart button is clicked or not.
 		if (isNotClicked) {
