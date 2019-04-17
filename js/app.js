@@ -257,18 +257,22 @@ container.addEventListener("click", function(event) {
 			restart();
 		}
 
-	} else if (event.target.classList.contains("start")){
-		// show the cards for 6 seconds
-		startGame();
-		// hide popup
-		startPopup.classList.toggle("visible");
+	} else if (event.target.classList.contains("start")) {
+
+		// to avoid running the code when pressing space.
+		if (startPopup.classList.contains("visible")) {
+			// show the cards for 6 seconds
+			startGame();
+			// hide popup
+			startPopup.classList.remove("visible");
+		}
 	}
 
 });
 
 // show start popup
 const startPopup = document.querySelector(".start-popup");
-startPopup.classList.toggle("visible");
+startPopup.classList.add("visible");
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
