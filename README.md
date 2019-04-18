@@ -1,20 +1,19 @@
 # Memory Game Project
 
-## Table of Contents
+My version of the matching game.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+## Languages Used
 
-## Instructions
+* HTML
+* CSS
+* JavaScript
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+### Others
 
-To get started, open `js/app.js` and start building out the app's functionality
+* [Normalize.css](https://necolas.github.io/normalize.css/)
+* [Font Awesome](https://fontawesome.com/)
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Helpful Links
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+* [Remove Gray Highlight When Tapping Links in Mobile Safari](https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/)
+* [Orientation](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation)
