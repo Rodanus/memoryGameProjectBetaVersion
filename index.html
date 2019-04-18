@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="author" content="Roudan Haj Hussein">
+    <meta name="description" content="my version of the matching game">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matching Game</title>
-    <meta name="description" content="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -87,15 +88,17 @@
             </li>
         </ul>
 
-        <div class="congrats-popup">
+        <!-- congrats popup -->
+        <section class="congrats-popup">
             <h2 class="title">congratulations! you won!</h2>
             <p class="score">
                 your score is: <span class="score-time">0</span> seconds, <span class="score-moves">0</span> moves, and star rating of: <span class="score-stars">0</span> <span class="score-stars-text">stars</span>
             </p>
 
             <button class="play-again">play again?</button>
-        </div>
+        </section>
 
+        <!-- start popup -->
         <section class="start-popup">
             <h2 class="game-name">matching game</h2>
 
@@ -117,6 +120,7 @@
             <button class="start">start</button>
         </section>
 
+        <!-- landscape popup -->
         <section class="landscape-mode">
             <p class="rotate">
                 please rotate your phone in order to play the game.
