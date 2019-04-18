@@ -53,7 +53,7 @@ function removeStar() {
 	// select the stars
 	const stars = document.querySelectorAll(".fa-star");
 
-	if ((movesCounter % 10 === 0) && (stars.length > 1)) { /* each time movesCounter is increased 10 numbers,
+	if ((movesCounter % 16 === 0) && (stars.length > 1)) { /* each time movesCounter is increased 10 numbers,
 	 one star is removed, but if there is only one star left it stops. */
 			removedStars.push(stars[0]);
 			stars[0].remove();
